@@ -11,21 +11,31 @@ following changes,
 src="http://img.youtube.com/vi/9wjTtiVUXnE/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" 
 border="10" /></a> <a href="http://www.youtube.com/watch?feature=player_embedded&v=knSVWLZa_sU " 
 target="_blank"><img src="http://img.youtube.com/vi/knSVWLZa_sU/0.jpg" alt="IMAGE ALT TEXT HERE" 
-width="240" height="180" border="10" /></a> <a 
-href="http://www.youtube.com/watch?feature=player_embedded&v=ZfF9SYCjxU8 " target="_blank"><img 
+width="240" height="180" border="10" /></a> 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=ZfF9SYCjxU8 " target="_blank"><img 
 src="http://img.youtube.com/vi/ZfF9SYCjxU8/0.jpg" alt="IMAGE ALT TEXT HERE" width="240" height="180" 
 border="10" /></a> <a href="http://www.youtube.com/watch?feature=player_embedded&v=H8feQqaTftg " 
 target="_blank"><img src="http://img.youtube.com/vi/H8feQqaTftg/0.jpg" alt="IMAGE ALT TEXT HERE" 
 width="240" height="180" border="10" /></a>
+
 ## Weights
 [trained weights](https://drive.google.com/file/d/1JDrBWXvNXUuuvxWvJPIMsomqXMshnhpa/view?usp=sharing)
+
 ## TODO
-- [x] Change backbone to the one from YOLO9000 - [x] Use tf.distribute.MirroredStrategy for multi gpu 
-training - [x] Use tf.data.Dataset to implement the data input pipeline - [ ] Add quantitative results 
+- [x] Change backbone to the one from YOLO9000
+- [x] Use tf.distribute.MirroredStrategy for multi gpu training
+- [x] Use tf.data.Dataset to implement the data input pipeline
+- [ ] Add quantitative results 
 - [ ] Use learning_rate schedule during training
+
 ## Outputs
-![](outputs/8986.png) ![](outputs/9740.png) ![](outputs/8534.png) ![](outputs/1415.png) 
+![](outputs/8986.png)
+![](outputs/9740.png)
+![](outputs/8534.png)
+![](outputs/1415.png) 
 ![](outputs/9079.png)
+
 ## Training
  - The model was trained on the Berkeley Deep Drive (BDD) dataset, which has 70,000 training images and 
 10000 validation images
