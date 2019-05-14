@@ -4,3 +4,18 @@ This is a TensorFlow2.0 implementation of the YOLOv1 paper https://arxiv.org/abs
  - Input size is changed from 448x448 to 608x608
  - The output stride is reduced from 64 to 32, to capture smaller objects
  - Used 9 boxes per grid location, the paper uses 2. [doing this did not help much]
+
+## TODO
+- [x] Change backbone to the one from YOLO9000
+- [x] Use tf.distribute.MirroredStrategy for multi gpu training
+- [x] Use tf.data.Dataset to implement the data input pipeline
+- [ ] Add quantitative results
+
+## Outputs
+![](outputs/8986.png)
+![](outputs/9740.png)
+![](outputs/8534.png)
+![](outputs/1415.png)
+![](outputs/9079.png)
+
+
