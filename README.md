@@ -5,6 +5,9 @@ This is a TensorFlow2.0 implementation of the YOLOv1 paper https://arxiv.org/abs
  - The output stride is reduced from 64 to 32, to capture smaller objects
  - Used 9 boxes per grid location, the paper uses 2. [doing this did not help much]
 
+## Weights
+[trained weights](https://drive.google.com/file/d/1JDrBWXvNXUuuvxWvJPIMsomqXMshnhpa/view?usp=sharing)
+
 
 ## TODO
 - [x] Change backbone to the one from YOLO9000
