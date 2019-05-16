@@ -178,7 +178,7 @@ for i, img in tqdm(enumerate(val_images)):
     val_label_vectors[i] = get_label(label_path)
 
 
-def get_image(image_path, flip=0):
+def get_image(image_path):
     img = tf.io.read_file(image_path)
     img = tf.image.decode_jpeg(img)
     img = tf.cast(tf.image.resize(img, size=[H, W]), dtype=tf.float32)
@@ -186,25 +186,14 @@ def get_image(image_path, flip=0):
     img = tf.image.random_saturation(img, lower=0.5, upper=1.5)
     img = tf.image.random_hue(img, max_delta=0.2)
     img = tf.image.random_contrast(img, lower=0.5, upper=1.5)
-    if flip == 1:
-        img = tf.image.flip_left_right(img)
     img = tf.clip_by_value(img, 0, 255)
-    img /= 255.
+    img /= 127.5
+    img -= 1.
     return img
 
-
-def flip_labels(labels, flip=0):
-    if flip == 1:
-        temp = labels[labels[:, :, 0] == 1]
-        temp[:, 1] = W - temp[:, 1]
-        labels[labels[:, :, 0] == 1] = temp
-    return labels
-
-
 def load_data(image_path, labels):
-    flip = tf.random.uniform(
-        shape=[1, ], minval=0, maxval=2, dtype=tf.int32)[0]
-    return get_image(image_path, flip=flip), flip_labels(labels, flip=flip)
+    flip = tf.cast(tf.random.uniform(shape=[1,], minval=0, maxval=2, dtype=tf.int32), dtype=tf.bool).numpy()[0]
+    return get_image(image_path), flip_labels(labels)
 
 
 def conv_block(x, n_filters, size, strides=1, pool=False):
