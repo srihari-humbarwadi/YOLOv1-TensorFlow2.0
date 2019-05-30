@@ -270,8 +270,8 @@ val_dataset = val_dataset.apply(tf.data.experimental.map_and_batch(map_func=load
                                                                    batch_size=batch_size,
                                                                    num_parallel_calls=tf.data.experimental.AUTOTUNE,
                                                                    drop_remainder=True))
-val_dataset = val_dataset.repeat()
-val_dataset = val_dataset.prefetch(tf.data.experimental.AUTOTUNE)
+val_dataset = train_dataset.repeat()
+val_dataset = train_dataset.prefetch(tf.data.experimental.AUTOTUNE)
 
 
 callbacks = [tf.keras.callbacks.ModelCheckpoint(
