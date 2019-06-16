@@ -1,14 +1,11 @@
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 from tensorflow.keras.layers import *
 from tensorflow.keras.regularizers import l2
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 import tensorflow as tf
 from glob import glob
-import pandas as pd
 import numpy as np
 import json
-import cv2
 import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -165,7 +162,8 @@ def get_label(label_path, orig_h=720, orig_w=1280):
     return label
 
 
-train_label_vectors = np.zeros(shape=[len(train_images), *grid_size, 5 + nclasses])
+train_label_vectors = np.zeros(
+    shape=[len(train_images), *grid_size, 5 + nclasses])
 for i, img in tqdm(enumerate(train_images)):
     fname = img.split('/')[-1].split('.')[0] + '.json'
     label_path = 'BDD/bdd100k/labels/100k/train/' + fname
@@ -191,8 +189,10 @@ def get_image(image_path):
     img -= 1.
     return img
 
+
 def load_data(image_path, labels):
-    flip = tf.cast(tf.random.uniform(shape=[1,], minval=0, maxval=2, dtype=tf.int32), dtype=tf.bool).numpy()[0]
+    flip = tf.cast(tf.random.uniform(
+        shape=[1, ], minval=0, maxval=2, dtype=tf.int32), dtype=tf.bool).numpy()[0]
     return get_image(image_path), flip_labels(labels)
 
 
