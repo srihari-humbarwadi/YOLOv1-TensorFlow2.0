@@ -1,4 +1,3 @@
-[![HitCount](http://hits.dwyl.io/srihari-humbarwadi/YOLOv1-TensorFlow20.svg)](http://hits.dwyl.io/srihari-humbarwadi/YOLOv1-TensorFlow20)
 # YOLOv1-TensorFlow2.0
 This is a TensorFlow2.0 implementation of the YOLOv1 paper https://arxiv.org/abs/1506.02640, with the 
 following changes,
